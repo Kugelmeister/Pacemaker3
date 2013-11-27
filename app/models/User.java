@@ -1,8 +1,10 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+
 import play.db.ebean.*;
 
 import com.google.common.base.Objects;
@@ -19,6 +21,9 @@ public class User extends Model
   public String lastname;
   public String email;
   public String password;
+  
+  @OneToMany(cascade=CascadeType.ALL)
+  public List<Activity> activities = new ArrayList<Activity>();
     
   public User()
   {
