@@ -1,0 +1,29 @@
+@(user : User)
+  @main_menu()
+    @main("User Details") {
+
+<h1 class="ui header">Pacemaker - User Details</h1>
+<div class="ui form segment">
+	<div class="two fields">
+		<div class="field">
+			<label>First Name</label> <input value=@user.firstname type="text" name="firstname" readonly>
+		</div>
+		<div class="field">
+			<label>Last Name</label> <input value=@user.lastname type="text" name="lastname" readonly>
+		</div>
+	</div>
+	<div class="two fields">
+		<div class="field">
+			<label>Email</label> <input value=@user.email type="text" name="email" readonly>
+		</div>
+		<div class="field">
+			<label>ID</label> <input value=@user.id type="text" name="id" readonly>
+		</div>
+	</div>
+</div>
+<div>
+	<a class="ui blue labeled icon button" href="/"> <i
+		class="user icon"></i> Show All Users
+	</a>
+</div>
+}

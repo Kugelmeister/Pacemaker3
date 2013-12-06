@@ -1,0 +1,24 @@
+@(activities: List[Activity])
+  @main_menu()
+    @main("Welcome to Pacemaker") {
+
+<h3><class ="uiheader"> Activities </h3>
+<table class="ui celled table segment">
+	<thead>
+		<tr>
+			<th>Type</th>
+			<th>Location</th>
+			<th>Distance</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for(i <- 0 until activities.size) {
+		<tr>
+			<td>@activities(i).kind</td>
+			<td>@activities(i).location</td>
+			<td>@activities(i).distance</td>
+		</tr>
+		}
+	</tbody>
+</table>
+}

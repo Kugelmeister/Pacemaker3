@@ -8,6 +8,7 @@ import play.db.ebean.Model;
 
 import com.google.common.base.Objects;
 
+@SuppressWarnings("serial")
 @Entity
 public class Location extends Model
 {

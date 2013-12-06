@@ -1,0 +1,23 @@
+@()
+  @main_menu()
+    @main("Add Activity - Upload") {
+
+<div class="ui stacked segment fluid form">
+	<form action="/submitactivity" method="POST">
+		<h3 class="ui header">Enter Activity Details:</h3>
+		<div class="field">
+			<label>Type</label>
+			<input type="text" name="kind">
+		</div>
+		<div class="field">
+			<label>Location</label>
+			<input type="text" name="location">
+		</div>
+		<div class="field">
+			<label>Distance</label>
+			<input type="number" name="distance">
+		</div>
+		<button class="ui blue submit button">Upload</button>
+	</form>
+</div>
+}

@@ -3,13 +3,25 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>@title</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
-    </head>
-    <body>
-        @content
-    </body>
+<head>
+<title>@title</title>
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("semantic/css/semantic.css")">
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/pacemaker_icon.png")">
+<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<script src='@routes.Assets.at("javascripts/jquery-1.9.0.min.js")' type="text/javascript"></script>
+<script src='@routes.Assets.at("semantic/javascript/semantic.min.js")'></script>
+</head>
+<body>
+	<section class="ui raised segment">
+		<div class="ui grid">
+			<aside class="four wide column">
+				<img src='@routes.Assets.at("images/pacemaker.png")' class="ui medium image">
+			</aside>
+			<article class="twelve wide column">
+			@content
+			</article>
+		</div>
+	</section>
+</body>
 </html>

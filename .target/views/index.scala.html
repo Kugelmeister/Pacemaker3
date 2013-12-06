@@ -1,7 +1,31 @@
-@(message: String)
+@(users: List[User])
+  @main_menu()
+    @main("Welcome to Pacemaker") {
 
-@main("Welcome to Play") {
-
-    @play20.welcome(message, style = "Java")
-
+<h1 class="ui header">Pacemaker - Admin Panel - Users</h1>
+<table class="ui table segment">
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for(i <- 0 until users.size) {
+		<tr>
+			<td><a href="/users/showuser/@users(i).id">
+					@users(i).firstname </a></td>
+			<td>@users(i).lastname</td>
+			<td><a href="/users/deleteuser/@users(i).id"> X </a></td>
+		</tr>
+		}
+	</tbody>
+	<tfoot>
+		<tr>
+			<th colspan="3"><a class="ui blue labeled icon button" href="/users/adduser"> <i class="user icon"></i> Add User
+			</a></th>
+		</tr>
+	</tfoot>
+</table>
 }
