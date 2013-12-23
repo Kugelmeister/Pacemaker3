@@ -57,7 +57,7 @@ public class JsonParser
     return locationSerializer.serialize(obj);
   }
 
-  public static  List<Location> renderLocations (String json)
+  public static  List<Location> renderRoute (String json)
   {
     return new JSONDeserializer<ArrayList<Location>>().use("values", Location.class).deserialize(json);
   }  

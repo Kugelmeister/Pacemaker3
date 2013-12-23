@@ -27,7 +27,7 @@ public class Activity extends Model
   public double distance;
   
   @OneToMany(cascade=CascadeType.ALL)
-  public List<Location> locations = new ArrayList<Location>();
+  public List<Location> route = new ArrayList<Location>();
  
   public Activity()
   {

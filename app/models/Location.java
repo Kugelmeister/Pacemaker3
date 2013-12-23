@@ -44,10 +44,24 @@ public class Location extends Model
     }
   }
   
+  @Override
   public String toString()
   {
     return Objects.toStringHelper(this)
         .add("Latitude", latitude)
         .add("Longitude", longitude).toString();
   }
+  
+  @Override  
+  public int hashCode()  
+  {  
+     return Objects.hashCode(this.id, this.latitude, this.longitude);  
+  }
+  
+  public static Location findById(Long id)
+  {
+    return find.where().eq("id", id).findUnique();
+  }
+  
+  public static Model.Finder<String, Location> find = new Model.Finder<String, Location>(String.class, Location.class);
 }
