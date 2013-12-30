@@ -2,6 +2,7 @@ package models;
 
 import static com.google.common.base.Objects.toStringHelper;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Version;
 
 import play.db.ebean.Model;
 
@@ -28,6 +30,9 @@ public class Activity extends Model
   
   @OneToMany(cascade=CascadeType.ALL)
   public List<Location> route = new ArrayList<Location>();
+  
+  @Version
+  public Timestamp lastUpdated;
  
   public Activity()
   {
