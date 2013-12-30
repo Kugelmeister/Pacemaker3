@@ -3,7 +3,7 @@
 # (Higher priority routes first)
 
 # Home page & cruft from before lab 11 excrecises
-#GET     /                           				controllers.Application.index()
+GET     /admin                           			controllers.Application.index()
 GET     /users/adduser                          	controllers.Application.addUser()
 POST    /users/submituser                          	controllers.Application.submitUser()
 GET     /users/showuser/:id                        	controllers.Application.showUser(id : Long)

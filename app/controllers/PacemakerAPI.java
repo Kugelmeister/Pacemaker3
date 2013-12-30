@@ -2,7 +2,9 @@ package controllers;
 
 import static parsers.JsonParser.*;
 import play.mvc.*;
+
 import java.util.*;
+
 import models.*;
 
 public class PacemakerAPI extends Controller
@@ -62,8 +64,8 @@ public class PacemakerAPI extends Controller
   public static Result route (Long activityId)
   {
 	  Activity a = Activity.findById(activityId);
-	  //return ok(renderRoute(a.route));
-	  return null;
+	  return ok((Content) renderRoute((a.route).toString()));
+	  //return null;
   }
   
   public static Result addLocation (Long activityId)
@@ -111,7 +113,7 @@ public class PacemakerAPI extends Controller
   
   public static Result deleteActivity (Long userId, Long activityId)
   {  
-    User    user      = User.findById(userId);
+    User user = User.findById(userId);
     Activity activity = Activity.findById(activityId);
     if (activity == null)
     {
@@ -136,7 +138,7 @@ public class PacemakerAPI extends Controller
   
   public static Result updateActivity (Long userId, Long activityId)
   {
-    User    user      = User.findById(userId);
+    User user = User.findById(userId);
     Activity activity = Activity.findById(activityId);
     if (activity == null)
     {

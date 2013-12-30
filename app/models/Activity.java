@@ -45,13 +45,6 @@ public class Activity extends Model
     this.distance  = distance;
   }
   
-  public static Activity findById(Long id)
-  {
-    return find.where().eq("id", id).findUnique();
-  }
-  
-  public static Model.Finder<String, Activity> find = new Model.Finder<String, Activity>(String.class, Activity.class);
-  
   @Override
   public String toString()
   {
@@ -82,5 +75,12 @@ public class Activity extends Model
   public int hashCode()  
   {  
      return Objects.hashCode(this.id, this.kind, this.location, this.distance);  
-  } 
+  }
+  
+  public static Activity findById(Long id)
+  {
+    return find.where().eq("id", id).findUnique();
+  }
+  
+  public static Model.Finder<String, Activity> find = new Model.Finder<String, Activity>(String.class, Activity.class);
 }
