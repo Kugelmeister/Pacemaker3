@@ -14,6 +14,10 @@ public class Dashboard extends Controller
   {
     String email = session().get("email");
     User user = User.findByEmail(email);
+    if (email.equals("admin@localhost"))
+    {
+    	return redirect (routes.Dashboard.index());
+    }
     return ok(dashboard_main.render(user.activities));
   }
   

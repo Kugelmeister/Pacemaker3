@@ -2,6 +2,12 @@
   users:
   
       - !!models.User
+          email:      admin@localhost
+          firstname:  admin
+          lastname:   labadmin        
+          password:   secret
+      
+      - !!models.User
           email:      homer@simpson.com
           firstname:  homer
           lastname:   simpson        

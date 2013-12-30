@@ -1,5 +1,5 @@
 @(activities: List[Activity])
-  @main_menu()  
+  @main_menu()
     @main("Welcome to Pacemaker") {
 
 <h3><class ="uiheader"> Activities </h3>
@@ -15,13 +15,56 @@
 		@for(i <- 0 until activities.size) {
 		<tr>
 			<td>@activities(i).kind</td>
-			<td>@activities(i).location</td>
+			<!-- <td>@activities(i).location</td> -->
+			<td><button type="button" onclick="initializeWithValues(52.4, -7.2)" >@activities(i).location</button><button type="button" class="right" onclick="getCoordinates()"> SET </button></td>
 			<td>@activities(i).distance</td>
 		</tr>
 		}
 	</tbody>
 </table>
 
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ie/?ie=UTF8&amp;ll=52.253967,-7.186781&amp;spn=0.001138,0.00284&amp;t=m&amp;z=19&amp;output=embed"></iframe><br /><small><a href="https://maps.google.ie/?ie=UTF8&amp;ll=52.253967,-7.186781&amp;spn=0.001138,0.00284&amp;t=m&amp;z=19&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ie/maps?f=d&amp;source=s_d&amp;saddr=Dublin+Airport&amp;daddr=Unknown+road&amp;hl=en&amp;geocode=FTs9LwMdg7ag_yFV8yW3tRsSVSkvGZNpvhFnSDFV8yW3tRsSVQ%3BFQxVHQMdplaS_w&amp;aq=1&amp;oq=Dublin&amp;sll=52.253967,-7.186781&amp;sspn=0.001138,0.00284&amp;mra=ls&amp;ie=UTF8&amp;ll=52.840295,-6.732742&amp;spn=1.177696,1.033609&amp;t=m&amp;output=embed"></iframe><br /><small><a href="https://maps.google.ie/maps?f=d&amp;source=embed&amp;saddr=Dublin+Airport&amp;daddr=Unknown+road&amp;hl=en&amp;geocode=FTs9LwMdg7ag_yFV8yW3tRsSVSkvGZNpvhFnSDFV8yW3tRsSVQ%3BFQxVHQMdplaS_w&amp;aq=1&amp;oq=Dublin&amp;sll=52.253967,-7.186781&amp;sspn=0.001138,0.00284&amp;mra=ls&amp;ie=UTF8&amp;ll=52.840295,-6.732742&amp;spn=1.177696,1.033609&amp;t=m" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+    <style type="text/css">
+      #map-canvas { height: 50% }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpJkS4ZQb9DdfXb53M96pwYvgvM-XebR8&sensor=false">
+    </script>
+    <script type="text/javascript">
+    
+    var map;
+    
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(52.397, -7.644),
+          zoom: 10
+        };
+        map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  <body>
+    <div id="map-canvas"/>
+  </body>
+  <script type="text/javascript">
+
+  function getCoordinates() {
+	  var coords = new Array();
+	  console.log(map.getCenter());
+	  var _nb = map.getCenter().nb;
+	  var _ob = map.getCenter().ob;
+	  return coords[_nb , _ob];
+  }
+  
+  function initializeWithValues(lat, lng) {
+	  //directionsDisplay = new google.maps.DirectionsRenderer();
+	    var newLocation = new google.maps.LatLng(lat, lng);
+	    var mapOptions = {
+	      zoom: 10,
+	      center: newLocation
+	    }
+	    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+	    return false;
+  }
+  </script>
 }

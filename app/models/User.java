@@ -2,11 +2,8 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.*;
-
 import play.db.ebean.*;
-
 import com.google.common.base.Objects;
  
 @SuppressWarnings("serial")
